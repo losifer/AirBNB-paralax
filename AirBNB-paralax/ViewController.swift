@@ -15,6 +15,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageImage: UIImageView!
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var imageBlurView: UIVisualEffectView!
+    @IBOutlet weak var hallViewImage: UIImageView!
+    @IBOutlet weak var livingroomImage: UIImageView!
     
     @IBOutlet weak var contentView: UIView!
     
@@ -65,10 +67,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             photoImage.transform = CGAffineTransformMakeTranslation(xPosition, yPosition)
             imageBlurView.transform = CGAffineTransformMakeTranslation(xPosition, yPosition)
-           // photoImage.transform = CGAffineTransformMakeScale(scale, scale)
-            imageBlurView.alpha = blurAlpha
-        }
+           imageBlurView.alpha = blurAlpha
         
+            let yPosition2 = convertValue(currentOffset, r1Min: 1190, r1Max: 2020, r2Min: 0, r2Max: -60)
+            
+            hallViewImage.frame.origin.y = yPosition2
+            
+            let yPosition3 = convertValue(currentOffset, r1Min: 1900, r1Max: 2720, r2Min: 0, r2Max: -60)
+            
+            livingroomImage.frame.origin.y = yPosition3
+        }
         
     }
     
